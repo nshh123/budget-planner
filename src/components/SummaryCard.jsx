@@ -11,8 +11,9 @@ export default function SummaryCard({
   const [isEditing, setIsEditing] = useState(false);
   const [newBudget, setNewBudget] = useState(budget);
 
-  const cardBg = isDark ? "#2d2d2d" : "#f8f9fa";
-  const subtextColor = isDark ? "#aaaaaa" : "#6c757d";
+  // Styling variables
+  const cardBg = isDark ? "#2d2d2d" : "#ffffff"; // Using pure white for light mode to match your image
+  const subtextColor = isDark ? "#aaaaaa" : "#718096";
   const inputBg = isDark ? "#1e1e1e" : "#ffffff";
   const inputColor = isDark ? "#ffffff" : "#000000";
   const borderColor = isDark ? "#444444" : "#ccc";
@@ -22,47 +23,36 @@ export default function SummaryCard({
     setIsEditing(false);
   };
 
+  const cardStyle = { backgroundColor: cardBg };
+  const labelStyle = {
+    margin: 0,
+    color: subtextColor,
+    fontSize: "13px",
+    textTransform: "uppercase",
+    letterSpacing: "0.5px",
+    marginBottom: "8px",
+    fontWeight: "bold",
+  };
+
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        backgroundColor: cardBg,
-        padding: "20px",
-        borderRadius: "8px",
-        marginBottom: "20px",
-        boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-        transition: "background-color 0.3s ease",
-      }}
-    >
-      <div>
-        <h3
-          style={{
-            margin: 0,
-            color: subtextColor,
-            fontSize: "14px",
-            textTransform: "uppercase",
-          }}
-        >
-          Total Budget
-        </h3>
+    // Notice we are using the CSS class here instead of inline flex styles!
+    <div className="summary-container">
+      {/* CARD 1: Total Budget */}
+      <div
+        className="summary-card"
+        style={{ ...cardStyle, borderColor: isDark ? "#444" : "#e2e8f0" }}
+      >
+        <h3 style={labelStyle}>Total Budget</h3>
 
         {isEditing ? (
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              marginTop: "5px",
-            }}
-          >
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
             <input
               type="number"
               value={newBudget}
               onChange={(e) => setNewBudget(e.target.value)}
               style={{
-                width: "80px",
-                padding: "4px 8px",
+                width: "100px",
+                padding: "6px",
                 borderRadius: "4px",
                 border: `1px solid ${borderColor}`,
                 backgroundColor: inputBg,
@@ -73,7 +63,7 @@ export default function SummaryCard({
             <button
               onClick={handleSave}
               style={{
-                padding: "4px 8px",
+                padding: "6px 12px",
                 backgroundColor: "#2a9d8f",
                 color: "#fff",
                 border: "none",
@@ -88,21 +78,23 @@ export default function SummaryCard({
           <div style={{ display: "flex", alignItems: "baseline", gap: "10px" }}>
             <p
               style={{
-                margin: "5px 0 0",
-                fontSize: "24px",
+                margin: 0,
+                fontSize: "26px",
                 fontWeight: "bold",
+                color: isDark ? "#fff" : "#1a202c",
               }}
             >
-              ${budget}
+              {/* Changed to Rwf and added .toFixed(2) for the .00 decimal */}
+              Rwf {parseFloat(budget).toFixed(2)}
             </p>
             <button
               onClick={() => setIsEditing(true)}
               style={{
                 background: "none",
                 border: "none",
-                color: "#007bff",
+                color: "#3b82f6",
                 cursor: "pointer",
-                fontSize: "12px",
+                fontSize: "14px",
                 textDecoration: "underline",
                 padding: 0,
               }}
@@ -113,49 +105,39 @@ export default function SummaryCard({
         )}
       </div>
 
-      <div>
-        <h3
-          style={{
-            margin: 0,
-            color: subtextColor,
-            fontSize: "14px",
-            textTransform: "uppercase",
-          }}
-        >
-          Total Spent
-        </h3>
+      {/* CARD 2: Total Spent */}
+      <div
+        className="summary-card"
+        style={{ ...cardStyle, borderColor: isDark ? "#444" : "#e2e8f0" }}
+      >
+        <h3 style={labelStyle}>Total Spent</h3>
         <p
           style={{
-            margin: "5px 0 0",
-            fontSize: "24px",
+            margin: 0,
+            fontSize: "26px",
             fontWeight: "bold",
-            color: "#e63946",
+            color: "#ef4444",
           }}
         >
-          ${spent}
+          Rwf {parseFloat(spent).toFixed(2)}
         </p>
       </div>
 
-      <div>
-        <h3
-          style={{
-            margin: 0,
-            color: subtextColor,
-            fontSize: "14px",
-            textTransform: "uppercase",
-          }}
-        >
-          Remaining
-        </h3>
+      {/* CARD 3: Remaining */}
+      <div
+        className="summary-card"
+        style={{ ...cardStyle, borderColor: isDark ? "#444" : "#e2e8f0" }}
+      >
+        <h3 style={labelStyle}>Remaining</h3>
         <p
           style={{
-            margin: "5px 0 0",
-            fontSize: "24px",
+            margin: 0,
+            fontSize: "26px",
             fontWeight: "bold",
-            color: remaining >= 0 ? "#2a9d8f" : "#e63946",
+            color: remaining >= 0 ? "#10b981" : "#ef4444",
           }}
         >
-          ${remaining}
+          Rwf {parseFloat(remaining).toFixed(2)}
         </p>
       </div>
     </div>

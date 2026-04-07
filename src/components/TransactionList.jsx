@@ -79,7 +79,7 @@ export default function TransactionList({ transactions, onDelete, isDark }) {
                   color: "#e63946",
                 }}
               >
-                -${transaction.amount.toFixed(2)}
+                -Rwf {transaction.amount.toFixed(2)}
               </span>
 
               <button

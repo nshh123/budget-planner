@@ -1,0 +1,23 @@
+/* src/App.css */
+
+.summary-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+@media (min-width: 600px) {
+  .summary-container {
+    flex-direction: row;
+  }
+}
+
+.summary-card {
+  flex: 1;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  transition: background-color 0.3s ease;
+}
