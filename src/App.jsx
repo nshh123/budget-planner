@@ -89,7 +89,7 @@ function App() {
           marginBottom: "20px",
         }}
       >
-        <h1>Budget Dashboard</h1>
+        <h1>Budget Manager v1.0</h1>
 
         <button
           onClick={toggleTheme}
@@ -123,6 +123,17 @@ function App() {
           isDark={isDarkMode}
         />
       </main>
+      <footer
+        style={{
+          textAlign: "center",
+          marginTop: "30px",
+          color: "#888888",
+          fontSize: "14px",
+          fontWeight: "500",
+        }}
+      >
+        Created by @nsam
+      </footer>
     </div>
   );
 }
