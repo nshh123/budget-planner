@@ -89,7 +89,7 @@ function App() {
           marginBottom: "20px",
         }}
       >
-        <h1>Budget Manager v1.0</h1>
+        <h1>Budget Manager_ v1.0</h1>
 
         <button
           onClick={toggleTheme}
