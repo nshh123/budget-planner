@@ -61,7 +61,6 @@ export default function AddTransactionForm({ onAdd, isDark }) {
           placeholder="What did you buy?"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          // flex: '1 1 200px' tells it to grow and shrink, but ideally be at least 200px wide
           style={{ ...inputStyles, flex: "1 1 200px", minWidth: "150px" }}
         />
 
@@ -94,7 +93,7 @@ export default function AddTransactionForm({ onAdd, isDark }) {
             border: "none",
             borderRadius: "4px",
             cursor: "pointer",
-            flex: "1 1 100px" /* Allows the button to grow */,
+            flex: "1 1 100px",
             fontWeight: "bold",
           }}
         >
