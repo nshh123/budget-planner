@@ -60,7 +60,7 @@ function App() {
 
   const appStyles = {
     maxWidth: "800px",
-    margin: "40px auto",
+    margin: "0 auto 40px auto",
     padding: "20px",
     fontFamily: "sans-serif",
 
