@@ -49,14 +49,20 @@ export default function AddTransactionForm({ onAdd, isDark }) {
 
       <form
         onSubmit={handleSubmit}
-        style={{ display: "flex", gap: "10px", alignItems: "center" }}
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "10px",
+          alignItems: "center",
+        }}
       >
         <input
           type="text"
           placeholder="What did you buy?"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          style={{ ...inputStyles, flex: 1 }}
+          // flex: '1 1 200px' tells it to grow and shrink, but ideally be at least 200px wide
+          style={{ ...inputStyles, flex: "1 1 200px", minWidth: "150px" }}
         />
 
         <input
@@ -64,13 +70,13 @@ export default function AddTransactionForm({ onAdd, isDark }) {
           placeholder="Amount"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
-          style={{ ...inputStyles, width: "100px" }}
+          style={{ ...inputStyles, flex: "1 1 100px", minWidth: "100px" }}
         />
 
         <select
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          style={inputStyles}
+          style={{ ...inputStyles, flex: "1 1 120px", minWidth: "120px" }}
         >
           <option value="Housing">Housing</option>
           <option value="Food">Food</option>
@@ -82,12 +88,14 @@ export default function AddTransactionForm({ onAdd, isDark }) {
         <button
           type="submit"
           style={{
-            padding: "8px 16px",
+            padding: "10px 16px",
             backgroundColor: "#007bff",
             color: "white",
             border: "none",
             borderRadius: "4px",
             cursor: "pointer",
+            flex: "1 1 100px" /* Allows the button to grow */,
+            fontWeight: "bold",
           }}
         >
           Add
