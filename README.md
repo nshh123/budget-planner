@@ -12,5 +12,12 @@ Currently, two official plugins are available:
 The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
 ## Access the app
+<<<<<<< HEAD
 
 Visit: https://budget-planner-seven-kohl.vercel.app/
+=======
+
+Visit: https://budget-planner-seven-kohl.vercel.app/
+
+
+>>>>>>> 9fce4056ae0a7000e34ff76c3541a0462e55888d
