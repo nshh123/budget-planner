@@ -19,10 +19,7 @@ function App() {
   const [transactions, setTransactions] = useState(() => {
     const savedTransactions = localStorage.getItem("budget-transactions");
     if (savedTransactions) return JSON.parse(savedTransactions);
-    return [
-      { id: 1, description: "Rent", amount: 1200, category: "Housing" },
-      { id: 2, description: "Groceries", amount: 350, category: "Food" },
-    ];
+    return [];
   });
 
   useEffect(() => {

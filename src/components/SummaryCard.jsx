@@ -11,8 +11,7 @@ export default function SummaryCard({
   const [isEditing, setIsEditing] = useState(false);
   const [newBudget, setNewBudget] = useState(budget);
 
-  // Styling variables
-  const cardBg = isDark ? "#2d2d2d" : "#ffffff"; // Using pure white for light mode to match your image
+  const cardBg = isDark ? "#2d2d2d" : "#ffffff";
   const subtextColor = isDark ? "#aaaaaa" : "#718096";
   const inputBg = isDark ? "#1e1e1e" : "#ffffff";
   const inputColor = isDark ? "#ffffff" : "#000000";
@@ -35,9 +34,7 @@ export default function SummaryCard({
   };
 
   return (
-    // Notice we are using the CSS class here instead of inline flex styles!
     <div className="summary-container">
-      {/* CARD 1: Total Budget */}
       <div
         className="summary-card"
         style={{ ...cardStyle, borderColor: isDark ? "#444" : "#e2e8f0" }}
@@ -84,7 +81,6 @@ export default function SummaryCard({
                 color: isDark ? "#fff" : "#1a202c",
               }}
             >
-              {/* Changed to Rwf and added .toFixed(2) for the .00 decimal */}
               Rwf {parseFloat(budget).toFixed(2)}
             </p>
             <button
@@ -105,7 +101,6 @@ export default function SummaryCard({
         )}
       </div>
 
-      {/* CARD 2: Total Spent */}
       <div
         className="summary-card"
         style={{ ...cardStyle, borderColor: isDark ? "#444" : "#e2e8f0" }}
@@ -123,7 +118,6 @@ export default function SummaryCard({
         </p>
       </div>
 
-      {/* CARD 3: Remaining */}
       <div
         className="summary-card"
         style={{ ...cardStyle, borderColor: isDark ? "#444" : "#e2e8f0" }}
